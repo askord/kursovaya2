@@ -10,17 +10,21 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class MailClass extends Mailable
 {
     use Queueable, SerializesModels;
-	
-	protected $name;
-	protected $email;
-	protected $msg;
 
-    
+    protected $name;
+    protected $email;
+    protected $msg;
+
+    /**
+     * Create a new message instance.
+     *
+     * @return void
+     */
     public function __construct($name,$email,$msg)
     {
-       $this->name=$name;
-	   $this->email=$email;
-	   $this->msg=$msg;
+        $this->name=$name;
+        $this->email=$email;
+        $this->msg=$msg;
     }
 
     /**
@@ -30,12 +34,7 @@ class MailClass extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.contact-mail')
-			->with([
-				'name'=>$this->name,
-				'email'=>$this->email,
-				'msg'=>$this->msg,
-			])
-			->subject('Новое письмо');
+        return $this->view('emails.contact-mail')->with(['name'=>$this->name,'email'=>$this->email,'msg'=>$this->msg])
+        ->subject('новое письмо');
     }
 }
