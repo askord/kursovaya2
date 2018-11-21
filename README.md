@@ -5,3 +5,6 @@ php artisan make:mail MailClass-создание класс MailClass в app/mai
 php artisan make:controller MailSetting создание контроллера для писем
 создание формы для отправки письма(в представления form.blade
 настройка данных для почты в .env
+php artisan tinker
+$admin=new App\Admin
+$admin->name="admin" с паролем, имайлом и джоб тайтлом;
