@@ -74,15 +74,20 @@
                     @else
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
+                        <a  href="{{url('form')}}">{{ __('Contact us') }}</a>
+                            </li>
+
                     @endauth
                 </div>
             @endif
+            
+
 
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        @component('components.who')   
-                        @endcomponent
+                      <!--  @component('components.who')   
+                        @endcomponent-->
                     </div>
                 </div>
             </div>

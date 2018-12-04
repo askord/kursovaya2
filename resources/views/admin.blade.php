@@ -16,6 +16,7 @@
 
                     @component('components.who')   
                     @endcomponent
+                    <a href="{{url('admin/panel')}}">В админ панель</a><br>
                 </div>
             </div>
         </div>
