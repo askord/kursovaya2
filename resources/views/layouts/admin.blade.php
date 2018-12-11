@@ -56,7 +56,7 @@
               <a class="nav-link" href="{{url('admin/articles')}}">Товары</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Пользователи</a>
+              <a class="nav-link" href="{{url('admin/users')}}">Пользователи</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Отзывы</a>

@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/find', function () {
     $config['center'] = 'Air Canada Centre, Toronto';
 	$config['zoom'] = '14';
     $config['map_height'] = '500px';
@@ -23,6 +23,10 @@ Route::get('/', function () {
     return view('welcome')->with('map', $map);
 
 });
+//магазин
+Route::get('/','ArticlesController2@index');
+Route::get('/article/{title}/{slug}.html', 'ArticlesController2@showArticle')->name('blog.show');
+//
 Route::get('/form', function () {
     return view('form');
 });
@@ -47,13 +51,15 @@ Route::prefix('admin')->group(function(){
 	Route::get('/categories/edit/{id}','CategoriesController@editCategory')->where('id','\d+')->name('categories.edit');
 	Route::post('/categories/edit/{id}','CategoriesController@editRequestCategory')->where('id','\d+')->name('categories.edit');
 	Route::delete('/categories/delete','CategoriesController@deleteCategory')->name('categories.delete');
-	//Articles
+	//товары
         Route::get('/articles', 'Admin\ArticlesController@index')->name('articles');
         Route::get('/articles/add', 'Admin\ArticlesController@addArticle')->name('articles.add');
         Route::post('/articles/add', 'Admin\ArticlesController@addRequestArticle');
         Route::get('/articles/edit/{id}', 'Admin\ArticlesController@editArticle')->where('id', '\d+')->name('articles.edit');
         Route::post('/articles/edit/{id}', 'Admin\ArticlesController@editRequestArticle')->where('id', '\d+');
         Route::delete('/articles/delete', 'Admin\ArticlesController@deleteArticle')->name('articles.delete');
+    //Юзеры   
+    	Route::get('/users', 'UsersController@index')->name('users'); 
 
 });
 
