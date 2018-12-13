@@ -10,9 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/find', function () {
-    $config['center'] = 'Air Canada Centre, Toronto';
+    $config['center'] = '54.310719, 48.382637';
 	$config['zoom'] = '14';
     $config['map_height'] = '500px';
 	$config['scrollwheel'] = false;
@@ -35,7 +34,8 @@ Auth::routes();
 //магазин
 //Route::get('/article', 'ArticlesController2@index');
 //Route::get('/article/{id}/{slug}.html', 'ArticlesController2@showArticle')->where('id', '\d')->name('blog.show');
-
+Route::resource('queries', 'SearchController');
+Route::post('/', 'SearchController@search');
 Route::get('/home', 'HomeController@index');
 Route::get('/users/logout','Auth\LoginController@userLogout')->name('user.logout');
 Route::prefix('admin')->group(function(){

@@ -12,7 +12,7 @@
                         <h2 class="subheading">{!! $article->text !!}</h2>
                         <span class="meta"> Цена
                 <a href="#">{{$article->price}}</a>
-                 в {!! $article->created_at->format('H:i - d/m/Y') !!}</span>
+                 </span>
                     </div>
                 </div>
             </div>
