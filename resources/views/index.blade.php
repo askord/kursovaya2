@@ -15,10 +15,14 @@
             </div>
         </div>
     </header>
-	<input type="text" class="form-controller" id="search" name="search"></input>
+    {!! Form::open(array('rout' => 'queries.search', 'class'=>'form navbar-form navbar-right searchform')) !!}
+            {!! Form::text('search', null,array('class'=>'form-control','placeholder'=>'search by product name')) !!}
+            {!! Form::submit('Search',array('class'=>'btn btn-default')) !!}
+         {!! Form::close() !!}
     <!-- Main Content -->
     <div class="container">
         <div class="row">
+                             
             <div class="col-lg-8 col-md-10 mx-auto">
                 @foreach($articles as $article)
                 <div class="post-preview">
@@ -35,11 +39,12 @@
                     </a>
                     <p class="post-meta">Цена
                         <a href="#">{{$article->price}}</a>
-                        <br>
-                        дата и время добавления товара {!! $article->created_at->format('H:i - d/m/Y') !!}</p>
+                        
+                        </p>
                 </div>
                 @endforeach
-				 {{ $articles->links() }}
+                
+                 {{ $articles->links() }}
 
 
 

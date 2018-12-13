@@ -147,6 +147,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 		Collective\Html\HtmlServiceProvider::class,
+
        
 
         /*
@@ -161,7 +162,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        Laravel\Scout\ScoutServiceProvider::class,
+        sngrl\SphinxSearch\SphinxSearchServiceProvider::class,
     ],
 
     /*
