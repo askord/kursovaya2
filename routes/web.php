@@ -22,6 +22,11 @@ Route::get('/find', function () {
     return view('welcome')->with('map', $map);
 
 });
+//корзина
+
+//Route::get('/','CardController@index');
+Route::post('/article/{title}/{slug}.html','CardController@addArticleinCard');
+
 //магазин
 Route::get('/','ArticlesController2@index');
 Route::get('/article/{title}/{slug}.html', 'ArticlesController2@showArticle')->name('blog.show');
@@ -37,7 +42,9 @@ Auth::routes();
 Route::resource('queries', 'SearchController');
 Route::post('/', 'SearchController@search');
 Route::get('/home', 'HomeController@index');
+
 Route::get('/users/logout','Auth\LoginController@userLogout')->name('user.logout');
+//Route::get('/home','ArticlesController2@index2');
 Route::prefix('admin')->group(function(){
 	Route::get('/login','Auth\AdminLoginController@showLoginForm')->name('admin.login');
 	Route::post('/login','Auth\AdminLoginController@login')->name('admin.login.submit');

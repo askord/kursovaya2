@@ -10,9 +10,7 @@ class Article extends Model
         'text',
         'price',
     ];
-    protected $dates = [
-        'created_at', 'updated_at'
-    ];
+    
     /**Relations*/
     public function categories()
     {

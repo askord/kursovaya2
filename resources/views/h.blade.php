@@ -1,0 +1,11 @@
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+		<h1>Добавить категорию</h1><br>
+		<form method="post">
+			{!! csrf_field() !!}
+		<p>Введите наименование категории:</p><br><input type="text" name="price" class="form-control" required></p>
+		<p>Введите наименование категории:</p><br><input type="text" name="userid" class="form-control" required></p>
+		<p>Введите наименование категории:</p><br><input type="text" name="title" class="form-control" required></p>
+		
+		<button type="submit" class="btn btn-success">Добавить</button>
+		</form>
+	</main>	

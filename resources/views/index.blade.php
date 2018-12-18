@@ -14,8 +14,7 @@
                 </div>
             </div>
         </div>
-    </header>
-    {!! Form::open(array('rout' => 'queries.search', 'class'=>'form navbar-form navbar-right searchform')) !!}
+    </header>    {!! Form::open(array('rout' => 'queries.search', 'class'=>'form navbar-form navbar-right searchform')) !!}
             {!! Form::text('search', null,array('class'=>'form-control','placeholder'=>'search by product name')) !!}
             {!! Form::submit('Search',array('class'=>'btn btn-default')) !!}
          {!! Form::close() !!}
@@ -26,21 +25,29 @@
             <div class="col-lg-8 col-md-10 mx-auto">
                 @foreach($articles as $article)
                 <div class="post-preview">
+                    <form method="post">
+                        {!! csrf_field() !!}
                     <a href="{!! route('blog.show', [
                        'id'   => $article->id,
                        'slug' => str_slug($article->title)
                     ]) !!}">
-                        <h2 class="post-title">
+                       <h2 name="title" class="post-title">
+                           
                            {!! $article->title !!}
+                           
                         </h2>
                         <h3 class="post-subtitle">
                             {!! $article->text !!}
                         </h3>
                     </a>
-                    <p class="post-meta">Цена
+                    <p name="price" class="post-meta">Цена
                         <a href="#">{{$article->price}}</a>
-                        
-                        </p>
+                    </p> 
+                    @auth
+                     <button type="submit" class="btn btn-success">Add to Cart</button>
+                    @endauth
+                 </form>
+                   <!-- {!! Form::submit('Add to cart',array('class'=>'btn btn-default')) !!}-->
                 </div>
                 @endforeach
                 

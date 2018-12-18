@@ -9,14 +9,14 @@
             <tr>
                 <th>#</th>
                 <th>Наименование</th>
-                <th>Дата добавления</th>
+                <th>Цена</th>
                 <th>Действия</th>
             </tr>
             @foreach($articles as $article)
                 <tr>
                     <td>{{$article->id}}</td>
                     <td>{{$article->title}}</td>
-                    <td>{{ $article->created_at->format('d-m-Y H:i') }}</td>
+                     <td>{{$article->price}}</td>
                     <td><a href="{!! route('articles.edit', ['id' => $article->id]) !!}">Редактировать</a> ||
                         <a href="javascript:;" class="delete" rel="{{$article->id}}">Удалить</a></td>
                 </tr>

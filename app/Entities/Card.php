@@ -1,17 +1,15 @@
 <?php
-
 namespace App\Entities;
-
 use Illuminate\Database\Eloquent\Model;
-
-class Category extends Model
+class Card extends Model
 {
-    protected $table="categories";
+    protected $table="cards";
     protected $primaryKey="id";
     protected $fillable=[
-    	'title','description',
+    	'userid','articleid',
     ];
     protected $dates=[
     	'created_at','updated_at'
     ];
 }
+

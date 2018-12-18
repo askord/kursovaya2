@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Entities\Article;
 use Illuminate\Http\Request;
+use App\Entities\Card;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $objArticle = new Article();
+        $objCard=new Card();
+        $cards=$objCard->orderBy('id', 'desc')->paginate(10);
+        $articles = $objArticle->orderBy('id', 'desc')->paginate(10);
+        return view('home', ['cards' => $cards],['articles' => $articles]);
+
     }
+    
 }
