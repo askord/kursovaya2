@@ -27,6 +27,11 @@
                 <div class="post-preview">
                     <form method="post">
                         {!! csrf_field() !!}
+                       <input type="hidden" name="articleid" value="{!!$article->id!!}">
+                       <input type="hidden" name="title" value="{!!$article->title!!}">
+                       <input type="hidden" name="price" value="{!!$article->price!!}">
+                       <input type="hidden" name="userid" value="{!! $id = Auth::id();!!} ">
+
                     <a href="{!! route('blog.show', [
                        'id'   => $article->id,
                        'slug' => str_slug($article->title)
@@ -41,13 +46,12 @@
                         </h3>
                     </a>
                     <p name="price" class="post-meta">Цена
-                        <a href="#">{{$article->price}}</a>
+                        {{$article->price}}
                     </p> 
-                    @auth
-                     <button type="submit" class="btn btn-success">Add to Cart</button>
-                    @endauth
+                    
                  </form>
                    <!-- {!! Form::submit('Add to cart',array('class'=>'btn btn-default')) !!}-->
+                   <hr>
                 </div>
                 @endforeach
                 
@@ -55,7 +59,7 @@
 
 
 
-                <hr>
+                
                 <!-- Pager -->
                 
             </div>

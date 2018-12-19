@@ -13,43 +13,33 @@
             <div class="col-lg-8 col-md-10 mx-auto">
 
                 @foreach($cards as $card)
-                @foreach($articles as $article)
-                @if($article->id==Auth::id())
                 @if($card->userid==Auth::id())
-                
                 <div class="post-preview">
                     <form method="post">
                         {!! csrf_field() !!}
-                    
-                       <h2  class="post-title">
-                           
-                            {!!$article->title!!}
-                           
-                        </h2>
-                        <h3 class="post-subtitle">
-                            {!! $card->articleid !!}
+                        <a href="{!! route('blog.show', [
+                       'id'   => $card->articleid,
+                       'slug' => str_slug($card->title)
+                    ]) !!}">
+                       <h3 class="post-subtitle">
+                        Name:    {!! $card->title !!}
                         </h3>
-                    </a>
+                        </a>
+                       <h3  class="post-title">
+                        Order number:
+                            {!!$card->id!!}
+                       </h3>
+                        
+                        <h3 class="post-subtitle">
+                        Price:    {!! $card->price !!}
+                        </h3>
+                        <hr>
+                    
                  </form>
-                   <!-- {!! Form::submit('Add to cart',array('class'=>'btn btn-default')) !!}-->
                 </div>
                 @endif
-                @endif
                 @endforeach
-                @endforeach
-               
                 {{ $cards->links() }}
-                {{ $articles->links() }}
-
-
-
-
-
-
-
-
-
-                <hr>
                 <!-- Pager -->
                 
             </div>
@@ -59,9 +49,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                 <!--   @component('components.who')   
-                    @endcomponent-->
                 </div>
             </div>
         </div>

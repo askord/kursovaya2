@@ -6,7 +6,7 @@ class Card extends Model
     protected $table="cards";
     protected $primaryKey="id";
     protected $fillable=[
-    	'userid','articleid',
+    	'userid','articleid','title','price',
     ];
     protected $dates=[
     	'created_at','updated_at'

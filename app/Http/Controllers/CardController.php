@@ -19,12 +19,11 @@ class CardController extends Controller
     {
         
     		$objCard=new Card();
-    		$objCard=$objCard->create(['articleid'=>$request->input('articleid'),'userid'=>$request->input('userid')]);
-            return view('/home');
-    		//dd($request->all());
-    		//if($objCategory){
-    		//	return back()->with('success','Категория успешно добавлена');
-    		//}
-    		//return redirect()->route('');
+    		$objCard=$objCard->create(['articleid'=>$request->input('articleid'),'userid'=>$request->input('userid'),'price'=>$request->input('price'),'title'=>$request->input('title')]);
+
+            $objArticle = new Article();
+            $articles = $objArticle->orderBy('id', 'desc')->paginate(10);
+            return view('index', ['articles' => $articles]);
+    		
     }
 }

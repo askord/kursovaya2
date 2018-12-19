@@ -14,9 +14,7 @@
                         <h2 class="subheading">{!! $article->text !!}
                             </h2>
                         <span  class="meta"> Цена
-                <a  href="#">{!!$article->price!!}
-                     <input type="hidden" name="price" value="{!!$article->price!!}">
-                   </a>
+                        {!!$article->price!!}
                  </span>
                     </div>
                 </div>
@@ -24,20 +22,9 @@
         </div>
     </header>
     <input type="hidden" name="articleid" value="{!!$article->id!!}">
-    <input type="hidden" name="userid" value="
-{!!
-    
-    $id = Auth::id();
-
-
-
-
-
-
-
-
-   !!} "
-    >
+    <input type="hidden" name="title" value="{!!$article->title!!}">
+    <input type="hidden" name="price" value="{!!$article->price!!}">
+    <input type="hidden" name="userid" value="{!! $id = Auth::id();!!} ">
     <!-- Post Content -->
     <article>
         <div class="container">
@@ -55,7 +42,7 @@
        
         
         @auth
-        <button type="submit" class="btn btn-success">Добавить</button>
+        <button type="submit"  class="btn btn-success">Add to cart</button>
        @endauth
             
         

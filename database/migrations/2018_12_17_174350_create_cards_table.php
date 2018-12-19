@@ -17,6 +17,8 @@ class CreateCardsTable extends Migration
        $table->increments('id');
        $table->integer('userid');
        $table->integer('articleid');
+       $table->string('title');
+       $table->integer('price');
        $table->timestamps();
         });
     }

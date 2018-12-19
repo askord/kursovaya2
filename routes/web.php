@@ -39,6 +39,7 @@ Auth::routes();
 //магазин
 //Route::get('/article', 'ArticlesController2@index');
 //Route::get('/article/{id}/{slug}.html', 'ArticlesController2@showArticle')->where('id', '\d')->name('blog.show');
+
 Route::resource('queries', 'SearchController');
 Route::post('/', 'SearchController@search');
 Route::get('/home', 'HomeController@index');
@@ -67,7 +68,7 @@ Route::prefix('admin')->group(function(){
         Route::delete('/articles/delete', 'Admin\ArticlesController@deleteArticle')->name('articles.delete');
     //Юзеры   
     	Route::get('/users', 'UsersController@index')->name('users'); 
-
+   
 });
 
 

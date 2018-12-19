@@ -25,6 +25,8 @@ class ArticlesController extends Controller
         $categories=$objCategory->get();
         return view('admin.articles.add',['categories'=>$categories]);
     }
+   
+
     public function addRequestArticle(ArticleRequest $request)
     {
        $objArticle = new Article();
@@ -45,6 +47,7 @@ class ArticlesController extends Controller
            }
            return redirect()->route('articles');
        }
+       
        return back();
     }
     public function editArticle(int $id)

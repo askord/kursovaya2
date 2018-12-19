@@ -27,8 +27,7 @@ class HomeController extends Controller
         $objArticle = new Article();
         $objCard=new Card();
         $cards=$objCard->orderBy('id', 'desc')->paginate(10);
-        $articles = $objArticle->orderBy('id', 'desc')->paginate(10);
-        return view('home', ['cards' => $cards],['articles' => $articles]);
+        return view('home', ['cards' => $cards]);
 
     }
     
